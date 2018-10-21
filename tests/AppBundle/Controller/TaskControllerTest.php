@@ -14,6 +14,7 @@ class TaskControllerTest extends WebTestCase
     {
         $client = self::createClient();
         $crawler = $client->request('GET', '/tasks');
+        dump($client->getResponse()->getContent());
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
