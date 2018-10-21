@@ -7,6 +7,7 @@ use AppBundle\Form\TaskType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
 
 class TaskController extends Controller
 {
@@ -20,6 +21,7 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/create", name="task_create")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function createAction(Request $request)
     {
@@ -28,7 +30,7 @@ class TaskController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
             $em->persist($task);
@@ -43,7 +45,8 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/tasks/{id}/edit", name="task_edit")
+     * @Route("/tasks/{slug}/edit", name="task_edit")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function editAction(Task $task, Request $request)
     {
@@ -51,7 +54,7 @@ class TaskController extends Controller
 
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
             $this->addFlash('success', 'La tâche a bien été modifiée.');
@@ -66,7 +69,8 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/tasks/{id}/toggle", name="task_toggle")
+     * @Route("/tasks/{slug}/toggle", name="task_toggle")
+     * @Security("is_granted('ROLE_USER')")     
      */
     public function toggleTaskAction(Task $task)
     {
@@ -79,7 +83,8 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/tasks/{id}/delete", name="task_delete")
+     * @Route("/tasks/{slug}/delete", name="task_delete")
+     * @Security("is_granted('ROLE_USER')")
      */
     public function deleteTaskAction(Task $task)
     {

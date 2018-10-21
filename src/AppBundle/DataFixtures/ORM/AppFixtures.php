@@ -19,8 +19,6 @@ class AppFixtures extends Fixture
     }
     public function load(ObjectManager $manager)
     {
-        $data = Yaml::parseFile('src/AppBundle/DataFixtures/ORM/User.yaml');
-
         $userA = new User;
         $userA->setRole('ROLE_ADMIN');
         $userA->setUsername('a');
@@ -28,7 +26,7 @@ class AppFixtures extends Fixture
              $userA,
              'a'
          ));
-        $userA->setEmail('lihummujo-9373@yopmail.com');
+        $userA->setEmail('userA@test.com');
 
         $userB = new User;
         $userB->setRole('ROLE_USER');
@@ -37,7 +35,7 @@ class AppFixtures extends Fixture
              $userB,
              'b'
          ));
-        $userB->setEmail('amenolusse-6759@yopmail.com');
+        $userB->setEmail('userB@test.com');
 
         $userC = new User;
         $userC->setRole('ROLE_USER');
@@ -46,7 +44,7 @@ class AppFixtures extends Fixture
              $userC,
              'anon'
          ));
-        $userC->setEmail('ezossonepu-4885@yopmail.com');
+        $userC->setEmail('userC@test.com');
 
         $manager->persist($userA);
         $manager->persist($userB);
