@@ -18,6 +18,7 @@
                     <th>Nom d'utilisateur</th>
                     <th>Adresse d'utilisateur</th>
                     <th>Actions</th>
+                    <th>Role</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,8 @@
                         <td>
                             <a href="{{ path('user_edit', {'id' : user.id}) }}" class="btn btn-success btn-sm">Edit</a>
                         </td>
+                        <td>{{ user.role|replace({'ROLE_': ''})|title}}</td>
+
                     </tr>
                 {% endfor %}
                 </tbody>
