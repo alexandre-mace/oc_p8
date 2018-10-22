@@ -75,6 +75,23 @@ class TaskControllerTest extends WebTestCase
         }
     }
 
+    public function testToggleTask() 
+    {
+        $client = self::createClient(array(), array(
+            'PHP_AUTH_USER' => 'a',
+            'PHP_AUTH_PW'   => 'a'
+        ));
+        $crawler = $client->request('GET', '/tasks');
+        $form = $crawler->selectButton('Marquer comme faite')->last()->form();
+        $client->submit($form);
+        $this->assertTrue($client->getResponse()->isRedirection());
+        $crawler = $client->followRedirect();
+        $this->assertContains(
+            'La tâche test task update a bien été marquée comme faite.',
+            $client->getResponse()->getContent()
+        );
+    }
+
     public function testDelete()
     {
        $client = self::createClient(array(), array(

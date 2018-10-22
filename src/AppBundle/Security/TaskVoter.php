@@ -20,7 +20,6 @@ class TaskVoter extends Voter
 
         // only vote on Task objects inside this voter
         if (!$subject instanceof Task) {
-            dump($attribute);die;
             return false;
         }
 

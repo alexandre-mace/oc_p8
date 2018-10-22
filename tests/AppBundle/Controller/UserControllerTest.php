@@ -81,7 +81,7 @@ class UserControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isSuccessful());
         
         $link = $crawler
-            ->filter('a:contains("Edit")') // find all links with the text "Greet"
+            ->filter('a:contains("Edit")')
             ->last()
             ->link();
         $crawler = $client->click($link);
