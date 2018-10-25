@@ -13,10 +13,10 @@ class loadFixturesCommandTest extends WebTestCase
     public function testLoad() {
         $client = self::createClient();
         $container = $client->getContainer();
-        $em = $container->get('doctrine.dbal.default_connection');
-        foreach($em->getSchemaManager()->listTableNames() as $tableName)
+        $manager = $container->get('doctrine.dbal.default_connection');
+        foreach($manager->getSchemaManager()->listTableNames() as $tableName)
         {
-          $em->exec('DELETE FROM ' . $tableName);
+          $manager->exec('DELETE FROM ' . $tableName);
         }
         $doctrine = $container->get('doctrine');
         $entityManager = $doctrine->getManager();
