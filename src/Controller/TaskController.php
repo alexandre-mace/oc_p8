@@ -31,10 +31,10 @@ class TaskController extends Controller
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
+            $manager = $this->getDoctrine()->getManager();
 
-            $em->persist($task);
-            $em->flush();
+            $manager->persist($task);
+            $manager->flush();
 
             $this->addFlash('success', 'La tâche a été bien été ajoutée.');
 
@@ -89,9 +89,9 @@ class TaskController extends Controller
     public function deleteTaskAction(Task $task)
     {
         $this->denyAccessUnlessGranted('delete', $task);
-        $em = $this->getDoctrine()->getManager();
-        $em->remove($task);
-        $em->flush();
+        $manager = $this->getDoctrine()->getManager();
+        $manager->remove($task);
+        $manager->flush();
 
         $this->addFlash('success', 'La tâche a bien été supprimée.');
 
