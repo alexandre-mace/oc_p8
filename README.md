@@ -19,17 +19,23 @@ Enhance an existing Symfony 3 application, 8th project from OpenClassroom's clas
 
 *   Install dependencies.
 
-  `composer install`
+```
+composer install
+```
 
 ## Configuration
 *   Customize the .env file
 
 #### doctrine
-  `DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"`
+```
+DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
+```
 
 *   Create database 
 
-  `php bin/console doctrine:database:create`
+```
+php bin/console doctrine:database:create
+```
 
 *   Get tables 
 
@@ -40,9 +46,12 @@ Enhance an existing Symfony 3 application, 8th project from OpenClassroom's clas
 
 *   Get data
 
-  `php bin/console doctrine:fixtures:load`
+```
+php bin/console doctrine:fixtures:load
+```
 
 ## Tests
+*   run in console this command and results will show up in console
 ```
-*   run in console `./bin/phpunit` and results will show up in console
+./bin/phpunit 
 ```
