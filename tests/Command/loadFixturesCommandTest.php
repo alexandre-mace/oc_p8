@@ -25,9 +25,8 @@ class loadFixturesCommandTest extends WebTestCase
             $fixture->load($entityManager);
         $crawler = $client->request('GET', '/tasks');
         $this->assertTrue($client->getResponse()->isSuccessful());
-        $this->assertContains(
-            'task test 1',
-            $client->getResponse()->getContent()
-        );
+        $this->assertEquals(
+            0,
+            $crawler->filter('html:contains("test task 1")')->count());
     }
 }

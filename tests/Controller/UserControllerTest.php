@@ -16,7 +16,7 @@ class UserControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'a',
             'PHP_AUTH_PW' => 'a'
         ));
-        $crawler = $client->request('GET', '/users');
+        $client->request('GET', '/users');
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 

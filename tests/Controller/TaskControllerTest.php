@@ -13,7 +13,7 @@ class TaskControllerTest extends WebTestCase
     public function testList()
     {
         $client = static::createClient();
-        $crawler = $client->request('GET', '/tasks');
+        $client->request('GET', '/tasks');
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
