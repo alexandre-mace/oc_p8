@@ -4,17 +4,15 @@ Enhance an existing Symfony 3 application, 8th project from OpenClassroom's clas
 
 ## Requirements 
 *   [MySQL](https://www.mysql.com/fr/)
-
 *   [PHP](http://php.net/manual/fr/intro-whatis.php)
-
 *   [Apache](https://www.apache.org/)
 
 ## Installation 
 *   Clone the repository and open it.
 
 ```
-  git clone https://github.com/alexandre-mace/oc_p8.git
-  cd oc_p8
+git clone https://github.com/alexandre-mace/oc_p8.git
+cd oc_p8
 ```
 
 *   Install dependencies.
