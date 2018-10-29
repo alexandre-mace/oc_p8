@@ -8,6 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use App\Handler\CreateUserHandler;
+use App\Handler\EditUserHandler;
 
 /**
  * @Security("is_granted('ROLE_ADMIN')") 
@@ -25,48 +27,24 @@ class UserController extends Controller
     /**
      * @Route("/users/create", name="user_create")
      */
-    public function createAction(Request $request)
+    public function createAction(Request $request, CreateUserHandler $handler)
     {
-        $user = new User();
-        $form = $this->createForm(UserType::class, $user);
-
-        $form->handleRequest($request);
-        if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->getDoctrine()->getManager();
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
-
-            $manager->persist($user);
-            $manager->flush();
-
-            $this->addFlash('success', "L'utilisateur a bien été ajouté.");
-
+        $form = $this->createForm(UserType::class)->handleRequest($request);
+        if ($handler->handle($form)) {
             return $this->redirectToRoute('user_list');
         }
-
         return $this->render('user/create.html.twig', ['form' => $form->createView()]);
     }
 
     /**
      * @Route("/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request)
+    public function editAction(User $user, Request $request, EditUserHandler $handler)
     {
-        $form = $this->createForm(UserType::class, $user);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $password = $this->get('security.password_encoder')->encodePassword($user, $user->getPassword());
-            $user->setPassword($password);
-
-            $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash('success', "L'utilisateur a bien été modifié");
-
+        $form = $this->createForm(UserType::class, $user)->handleRequest($request);
+        if ($handler->handle($form)) {
             return $this->redirectToRoute('user_list');
         }
-
         return $this->render('user/edit.html.twig', ['form' => $form->createView(), 'user' => $user]);
     }
 }

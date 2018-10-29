@@ -8,13 +8,17 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Security;
+use App\Handler\CreateTaskHandler;
+use App\Handler\EditTaskHandler;
+use App\Handler\DeleteTaskHandler;
+use App\Handler\ToggleTaskHandler;
 
 class TaskController extends Controller
 {
     /**
      * @Route("/tasks", name="task_list")
      */
-    public function listAction()
+    public function list()
     {
         return $this->render('task/list.html.twig', ['tasks' => $this->getDoctrine()->getRepository('App:Task')->findAll()]);
     }
@@ -23,24 +27,12 @@ class TaskController extends Controller
      * @Route("/tasks/create", name="task_create")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function createAction(Request $request)
+    public function create(Request $request, CreateTaskHandler $handler)
     {
-        $task = new Task();
-        $form = $this->createForm(TaskType::class, $task);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $manager = $this->getDoctrine()->getManager();
-
-            $manager->persist($task);
-            $manager->flush();
-
-            $this->addFlash('success', 'La tâche a été bien été ajoutée.');
-
+        $form = $this->createForm(TaskType::class)->handleRequest($request);
+        if ($handler->handle($form)) {
             return $this->redirectToRoute('task_list');
         }
-
         return $this->render('task/create.html.twig', ['form' => $form->createView()]);
     }
 
@@ -48,20 +40,12 @@ class TaskController extends Controller
      * @Route("/tasks/{slug}/edit", name="task_edit")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function editAction(Task $task, Request $request)
+    public function edit(Task $task, Request $request, EditTaskHandler $handler)
     {
-        $form = $this->createForm(TaskType::class, $task);
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            $this->addFlash('success', 'La tâche a bien été modifiée.');
-
+        $form = $this->createForm(TaskType::class, $task)->handleRequest($request);
+        if ($handler->handle($form)) {
             return $this->redirectToRoute('task_list');
         }
-
         return $this->render('task/edit.html.twig', [
             'form' => $form->createView(),
             'task' => $task,
@@ -72,13 +56,9 @@ class TaskController extends Controller
      * @Route("/tasks/{slug}/toggle", name="task_toggle")
      * @Security("is_granted('ROLE_USER')")     
      */
-    public function toggleTaskAction(Task $task)
+    public function toggle(Task $task, ToggleTaskHandler $handler)
     {
-        $task->toggle(!$task->isDone());
-        $this->getDoctrine()->getManager()->flush();
-
-        $this->addFlash('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
-
+        $handler->handle($task);
         return $this->redirectToRoute('task_list');
     }
 
@@ -86,15 +66,9 @@ class TaskController extends Controller
      * @Route("/tasks/{slug}/delete", name="task_delete")
      * @Security("is_granted('ROLE_USER')")
      */
-    public function deleteTaskAction(Task $task)
+    public function deleteTask(Task $task, DeleteTaskHandler $handler)
     {
-        $this->denyAccessUnlessGranted('delete', $task);
-        $manager = $this->getDoctrine()->getManager();
-        $manager->remove($task);
-        $manager->flush();
-
-        $this->addFlash('success', 'La tâche a bien été supprimée.');
-
+        $handler->handle($task);
         return $this->redirectToRoute('task_list');
     }
 }

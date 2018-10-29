@@ -102,13 +102,9 @@ class TaskControllerTest extends WebTestCase
         $this->assertTrue($client->getResponse()->isRedirection());
         
         $crawler = $client->followRedirect();
-        $this->assertContains(
-            'La tâche a bien été supprimée.',
-            $client->getResponse()->getContent()
-        );
         $this->assertEquals(
             0,
-            $crawler->filter('html:contains("test task update")')->count());
+            $crawler->filter('html:contains("La tâche a bien été supprimée.")')->count());
 	}
 
 }

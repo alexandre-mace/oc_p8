@@ -4,7 +4,6 @@
 namespace App\EventListener;
 
 use Doctrine\Common\EventSubscriber;
-use App\Entity\Product;
 use Symfony\Component\Security\Core\Security;
 use App\Entity\Task;
 use Doctrine\Common\Persistence\Event\LifecycleEventArgs;
