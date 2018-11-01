@@ -1,0 +1,21 @@
+App\Entity\User:
+    user_{1..10}:
+        username: <name()>
+        plainPassword: <password()>
+        email: <email()>
+        role: 'ROLE_ADMIN'
+    user_a:
+        username: 'a'
+        plainPassword: 'a'
+        email: <email()>
+        role: 'ROLE_ADMIN'
+    user_b:
+        username: 'b'
+        plainPassword: 'b'
+        email: <email()>
+        role: 'ROLE_USER'
+    user_anon:
+        username: 'anon'
+        plainPassword: 'anon'
+        email: <email()>
+        role: 'ROLE_ADMIN'

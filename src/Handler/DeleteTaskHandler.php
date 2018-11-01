@@ -12,6 +12,7 @@ class DeleteTaskHandler
 {
     private $manager;
     private $flashBag;
+    private $authChecker;
 
     public function __construct(EntityManagerInterface $manager, FlashBagInterface $flashBag, AuthorizationCheckerInterface $authChecker)
     {
@@ -28,7 +29,6 @@ class DeleteTaskHandler
         $this->manager->remove($task);
         $this->manager->flush();
         $this->flashBag->add('success', 'La tâche a bien été supprimée.');
-
         return true;
     }
 }

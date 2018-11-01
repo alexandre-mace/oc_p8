@@ -43,6 +43,7 @@
         "symfony/maker-bundle": "^1.8",
         "symfony/profiler-pack": "^1.0",
         "symfony/phpunit-bridge": "^4.1",
-        "codacy/coverage": "dev-master"
+        "codacy/coverage": "dev-master",
+        "hautelook/alice-bundle": "^2.3"
     }
 }

@@ -33,6 +33,14 @@ class User implements UserInterface
     private $password;
 
     /**
+     * @Assert\NotBlank()
+     * @Assert\Length(
+     *     max=4096
+     * )
+     */
+    private $plainPassword;
+
+    /**
      * @ORM\Column(type="string", length=60, unique=true)
      * @Assert\NotBlank(message="Vous devez saisir une adresse email.")
      * @Assert\Email(message="Le format de l'adresse n'est pas correcte.")
@@ -74,6 +82,16 @@ class User implements UserInterface
         $this->password = $password;
     }
 
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+    
     public function getEmail()
     {
         return $this->email;

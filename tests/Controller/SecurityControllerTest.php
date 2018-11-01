@@ -7,9 +7,11 @@ namespace App\Tests\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
 class SecurityControllerTest extends WebTestCase
 {
+
     public function testLogin()
     {
         $client = static::createClient(array(), array(
@@ -23,8 +25,8 @@ class SecurityControllerTest extends WebTestCase
         if ($client->getResponse()->isSuccessful()) {
             $form = $crawler->selectButton('Ajouter')->form();
             $form['user[username]'] = $username;
-            $form['user[password][first]'] = 'test';
-            $form['user[password][second]'] = 'test';
+            $form['user[plainPassword][first]'] = 'test';
+            $form['user[plainPassword][second]'] = 'test';
             $form['user[email]'] = 'test' . rand() . '@test.com';
             $form['user[role]']->select('ROLE_ADMIN');
             $client->submit($form);

@@ -9,10 +9,10 @@ use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 
 class TaskVoter extends Voter
 {
-        const DELETE = 'delete';
+    const DELETE = 'delete';
 
-        protected function supports($attribute, $subject)
-        {
+    protected function supports($attribute, $subject)
+    {
         // if the attribute isn't one we support, return false
         if (!in_array($attribute, array( self::DELETE))) {
             return false;
@@ -41,10 +41,8 @@ class TaskVoter extends Voter
             case self::DELETE:
                 return $this->hasRight($task, $user);
         }
-
-        throw new \LogicException('This code should not be reached!');
     }
-
+    
     private function hasRight(Task $task, User $user)
     {
         if ($task->getAuthor()->getUsername() === "anon") {

@@ -1,0 +1,7 @@
+App\Entity\Task:
+    task_{1..10}:
+        createdAt: <dateTime('now')>
+        title: <word()>
+        content: <text()>
+        isDone: <boolean(0)>
+        author: '@user*'

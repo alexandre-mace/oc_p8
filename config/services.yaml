@@ -32,3 +32,6 @@ services:
     App\EventListener\TaskSubscriber:
         tags:
             - { name: doctrine.event_subscriber, connection: default }
+    App\EventListener\UserSubscriber:
+        tags:
+            - { name: doctrine.event_subscriber, connection: default }

@@ -7,9 +7,11 @@ namespace App\Tests\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
 class UserControllerTest extends WebTestCase
 {
+
     public function testList()
     {
         $client = self::createClient(array(), array(
@@ -32,8 +34,8 @@ class UserControllerTest extends WebTestCase
         if ($client->getResponse()->isSuccessful()) {
             $form = $crawler->selectButton('Ajouter')->form();
             $form['user[username]'] = 'testadd' .rand();
-            $form['user[password][first]'] = 'test';
-            $form['user[password][second]'] = 'test';
+            $form['user[plainPassword][first]'] = 'test';
+            $form['user[plainPassword][second]'] = 'test';
             $form['user[email]'] = 'test' . rand() . '@test.com';
             $form['user[role]']->select('ROLE_ADMIN');
             $client->submit($form);
@@ -65,8 +67,8 @@ class UserControllerTest extends WebTestCase
             $form = $crawler->selectButton('Ajouter')->form();
             $form['user[username]'] = $clientName;
             $form['user[email]'] = 'test' . rand() . '@test.com';
-            $form['user[password][first]'] = 'test';
-            $form['user[password][second]'] = 'test';
+            $form['user[plainPassword][first]'] = 'test';
+            $form['user[plainPassword][second]'] = 'test';
             $form['user[role]']->select('ROLE_ADMIN');
             $client->submit($form);
 
@@ -89,8 +91,8 @@ class UserControllerTest extends WebTestCase
         $clientEditedName = rand();
         $form = $crawler->selectButton('Modifier')->form();
         $form['user[username]'] = $clientEditedName;
-        $form['user[password][first]'] = 'test';
-        $form['user[password][second]'] = 'test';
+        $form['user[plainPassword][first]'] = 'test';
+        $form['user[plainPassword][second]'] = 'test';
 
         $client->submit($form);
         $this->assertTrue($client->getResponse()->isRedirection());

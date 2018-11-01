@@ -19,7 +19,7 @@ class ToggleTaskHandler
 
     public function handle(Task $task)
     {
-        $task->toggle(!$task->isDone());
+        $task->toggle(!$task->getIsDone());
         $this->manager->flush();
         $this->flashBag->add('success', sprintf('La tâche %s a bien été marquée comme faite.', $task->getTitle()));
 

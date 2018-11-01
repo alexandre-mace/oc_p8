@@ -2,7 +2,7 @@
 <html lang="en">
  <head>
   <meta charset="UTF-8">
-  <title>Dashboard for /home/alex/Bureau/oc_p8/src/EventListener</title>
+  <title>Dashboard for /home/alex/Bureau/oc_p8/src/Handler</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../.css/bootstrap.min.css" rel="stylesheet" type="text/css">
   <link href="../.css/nv.d3.min.css" rel="stylesheet" type="text/css">
@@ -19,7 +19,7 @@
      <div class="col-md-12">
       <ol class="breadcrumb">
         <li><a href="../index.html">/home/alex/Bureau/oc_p8/src</a></li>
-        <li><a href="index.html">EventListener</a></li>
+        <li><a href="index.html">Handler</a></li>
         <li class="active">(Dashboard)</li>
 
       </ol>
@@ -112,6 +112,7 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="DeleteTaskHandler.php.html#24"><abbr title="App\Handler\DeleteTaskHandler::handle">handle</abbr></a></td><td class="text-right">83%</td></tr>
 
        </tbody>
       </table>
@@ -128,6 +129,7 @@
         </tr>
        </thead>
        <tbody>
+       <tr><td><a href="DeleteTaskHandler.php.html#24"><abbr title="App\Handler\DeleteTaskHandler::handle">handle</abbr></a></td><td class="text-right">2</td></tr>
 
        </tbody>
       </table>
@@ -158,7 +160,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#classCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,2], "Class Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,1,5], "Class Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -176,7 +178,7 @@ $(document).ready(function() {
       .yAxis.tickFormat(d3.format('d'));
 
     d3.select('#methodCoverageDistribution svg')
-      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,0,0,11], "Method Coverage"))
+      .datum(getCoverageDistributionData([0,0,0,0,0,0,0,0,0,1,0,11], "Method Coverage"))
       .transition().duration(500).call(chart);
 
     nv.utils.windowResize(chart.update);
@@ -226,7 +228,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Cyclomatic Complexity');
 
     d3.select('#classComplexity svg')
-      .datum(getComplexityData([[100,9,"<a href=\"TaskSubscriber.php.html#12\">App\\EventListener\\TaskSubscriber<\/a>"],[100,7,"<a href=\"UserSubscriber.php.html#11\">App\\EventListener\\UserSubscriber<\/a>"]], 'Class Complexity'))
+      .datum(getComplexityData([[100,4,"<a href=\"CreateTaskHandler.php.html#9\">App\\Handler\\CreateTaskHandler<\/a>"],[100,4,"<a href=\"CreateUserHandler.php.html#9\">App\\Handler\\CreateUserHandler<\/a>"],[90,3,"<a href=\"DeleteTaskHandler.php.html#11\">App\\Handler\\DeleteTaskHandler<\/a>"],[100,4,"<a href=\"EditTaskHandler.php.html#9\">App\\Handler\\EditTaskHandler<\/a>"],[100,4,"<a href=\"EditUserHandler.php.html#9\">App\\Handler\\EditUserHandler<\/a>"],[100,2,"<a href=\"ToggleTaskHandler.php.html#9\">App\\Handler\\ToggleTaskHandler<\/a>"]], 'Class Complexity'))
       .transition()
       .duration(500)
       .call(chart);
@@ -250,7 +252,7 @@ $(document).ready(function() {
     chart.yAxis.axisLabel('Method Complexity');
 
     d3.select('#methodComplexity svg')
-      .datum(getComplexityData([[100,1,"<a href=\"TaskSubscriber.php.html#17\">App\\EventListener\\TaskSubscriber::__construct<\/a>"],[100,1,"<a href=\"TaskSubscriber.php.html#23\">App\\EventListener\\TaskSubscriber::getSubscribedEvents<\/a>"],[100,1,"<a href=\"TaskSubscriber.php.html#31\">App\\EventListener\\TaskSubscriber::prePersist<\/a>"],[100,1,"<a href=\"TaskSubscriber.php.html#37\">App\\EventListener\\TaskSubscriber::preUpdate<\/a>"],[100,3,"<a href=\"TaskSubscriber.php.html#42\">App\\EventListener\\TaskSubscriber::hydrateAuthor<\/a>"],[100,2,"<a href=\"TaskSubscriber.php.html#55\">App\\EventListener\\TaskSubscriber::slugify<\/a>"],[100,1,"<a href=\"UserSubscriber.php.html#15\">App\\EventListener\\UserSubscriber::__construct<\/a>"],[100,1,"<a href=\"UserSubscriber.php.html#20\">App\\EventListener\\UserSubscriber::getSubscribedEvents<\/a>"],[100,1,"<a href=\"UserSubscriber.php.html#28\">App\\EventListener\\UserSubscriber::prePersist<\/a>"],[100,1,"<a href=\"UserSubscriber.php.html#33\">App\\EventListener\\UserSubscriber::preUpdate<\/a>"],[100,3,"<a href=\"UserSubscriber.php.html#38\">App\\EventListener\\UserSubscriber::encode<\/a>"]], 'Method Complexity'))
+      .datum(getComplexityData([[100,1,"<a href=\"CreateTaskHandler.php.html#14\">App\\Handler\\CreateTaskHandler::__construct<\/a>"],[100,3,"<a href=\"CreateTaskHandler.php.html#20\">App\\Handler\\CreateTaskHandler::handle<\/a>"],[100,1,"<a href=\"CreateUserHandler.php.html#14\">App\\Handler\\CreateUserHandler::__construct<\/a>"],[100,3,"<a href=\"CreateUserHandler.php.html#20\">App\\Handler\\CreateUserHandler::handle<\/a>"],[100,1,"<a href=\"DeleteTaskHandler.php.html#17\">App\\Handler\\DeleteTaskHandler::__construct<\/a>"],[83.33333333333334,2,"<a href=\"DeleteTaskHandler.php.html#24\">App\\Handler\\DeleteTaskHandler::handle<\/a>"],[100,1,"<a href=\"EditTaskHandler.php.html#14\">App\\Handler\\EditTaskHandler::__construct<\/a>"],[100,3,"<a href=\"EditTaskHandler.php.html#20\">App\\Handler\\EditTaskHandler::handle<\/a>"],[100,1,"<a href=\"EditUserHandler.php.html#14\">App\\Handler\\EditUserHandler::__construct<\/a>"],[100,3,"<a href=\"EditUserHandler.php.html#20\">App\\Handler\\EditUserHandler::handle<\/a>"],[100,1,"<a href=\"ToggleTaskHandler.php.html#14\">App\\Handler\\ToggleTaskHandler::__construct<\/a>"],[100,1,"<a href=\"ToggleTaskHandler.php.html#20\">App\\Handler\\ToggleTaskHandler::handle<\/a>"]], 'Method Complexity'))
       .transition()
       .duration(500)
       .call(chart);

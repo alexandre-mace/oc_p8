@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class TaskControllerTest extends WebTestCase
 {
+
     public function testList()
     {
         $client = static::createClient();
@@ -94,17 +95,51 @@ class TaskControllerTest extends WebTestCase
 
     public function testDelete()
     {
-       $client = self::createClient(array(), array(
+       $client = static::createClient(array(), array(
             'PHP_AUTH_USER' => 'a',
             'PHP_AUTH_PW'   => 'a'
         ));
-        $client->request('GET', 'tasks/test-task-update/delete');
+        $crawler = $client->request('GET', '/tasks');
+        $form = $crawler->selectButton('Supprimer')->last()->form();
+        $client->submit($form);
+        $this->assertTrue($client->getResponse()->isRedirection());
+        $crawler = $client->followRedirect();
+        $this->assertContains('La tâche a bien été supprimée.', $client->getResponse()->getContent());
+	}
+    public function testAnonDelete()
+    {
+        $client = self::createClient(array(), array(
+            'PHP_AUTH_USER' => 'anon',
+            'PHP_AUTH_PW' => 'anon'
+        ));
+        $crawler = $client->request('GET', '/tasks/create');
+        $this->assertTrue($client->getResponse()->isSuccessful());
+
+        if ($client->getResponse()->isSuccessful()) {
+            $form = $crawler->selectButton('Ajouter')->form();
+            $form['task[title]'] = 'test task voter';
+            $form['task[content]'] = 'test task voter';
+            $client->submit($form);
+
+            $this->assertTrue($client->getResponse()->isRedirection());
+
+            $crawler = $client->followRedirect();
+            $this->assertContains(
+                'La tâche a été bien été ajoutée.',
+                $client->getResponse()->getContent()
+            );
+            $this->assertContains(
+                'test task voter',
+                $client->getResponse()->getContent()
+            );
+        }
+
+        $client->request('GET', 'tasks/test-task-voter/delete');
         $this->assertTrue($client->getResponse()->isRedirection());
         
         $crawler = $client->followRedirect();
         $this->assertEquals(
-            0,
-            $crawler->filter('html:contains("La tâche a bien été supprimée.")')->count());
-	}
-
+            1,
+            $crawler->filter('html:contains("La tâche a bien été supprimée.")')->count());       
+    }
 }
