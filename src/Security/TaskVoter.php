@@ -39,9 +39,7 @@ class TaskVoter extends Voter
 
         switch ($attribute) {
             case self::DELETE:
-                return $this->hasRight($task, $user);
-        }
-    }
+                return $this->hasRight($task, $user);}}
     
     private function hasRight(Task $task, User $user)
     {

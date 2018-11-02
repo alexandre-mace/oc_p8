@@ -142,4 +142,41 @@ class TaskControllerTest extends WebTestCase
             1,
             $crawler->filter('html:contains("La tâche a bien été supprimée.")')->count());       
     }
+    public function testDeleteException()
+    {
+        $client = self::createClient(array(), array(
+            'PHP_AUTH_USER' => 'a',
+            'PHP_AUTH_PW' => 'a'
+        ));
+        $crawler = $client->request('GET', '/tasks/create');
+        $this->assertTrue($client->getResponse()->isSuccessful());
+
+        if ($client->getResponse()->isSuccessful()) {
+            $form = $crawler->selectButton('Ajouter')->form();
+            $form['task[title]'] = 'test exception delete';
+            $form['task[content]'] = 'test exception delete';
+            $client->submit($form);
+
+            $this->assertTrue($client->getResponse()->isRedirection());
+
+            $crawler = $client->followRedirect();
+            $this->assertContains(
+                'La tâche a été bien été ajoutée.',
+                $client->getResponse()->getContent()
+            );
+            $this->assertContains(
+                'test exception delete',
+                $client->getResponse()->getContent()
+            );
+        }
+
+       $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'b',
+            'PHP_AUTH_PW'   => 'b'
+        ));
+        $crawler = $client->request('GET', '/tasks');
+        $form = $crawler->selectButton('Supprimer')->last()->form();
+        $client->submit($form);
+        $this->assertEquals(403, $client->getResponse()->getStatusCode());
+    }
 }
