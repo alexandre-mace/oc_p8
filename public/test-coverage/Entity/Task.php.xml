@@ -2,13 +2,13 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="Task.php" path="/Entity">
     <totals>
-      <lines total="126" comments="29" code="97" executable="22" executed="22" percent="100.00"/>
-      <methods count="14" tested="14" percent="100.00"/>
+      <lines total="131" comments="29" code="102" executable="24" executed="24" percent="100.00"/>
+      <methods count="15" tested="15" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Entity\Task" start="12" executable="22" executed="22" crap="17">
+    <class name="App\Entity\Task" start="12" executable="24" executed="24" crap="18">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Entity"/>
       <method name="__construct" signature="__construct()" start="53" end="57" crap="1" executable="3" executed="3" coverage="100"/>
@@ -19,31 +19,41 @@
       <method name="setTitle" signature="setTitle($title)" start="79" end="82" crap="1" executable="2" executed="2" coverage="100"/>
       <method name="getContent" signature="getContent()" start="84" end="87" crap="1" executable="1" executed="1" coverage="100"/>
       <method name="setContent" signature="setContent($content)" start="89" end="92" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="isDone" signature="isDone()" start="94" end="97" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="toggle" signature="toggle($flag)" start="99" end="102" crap="1" executable="2" executed="2" coverage="100"/>
-      <method name="getAuthor" signature="getAuthor(): ?User" start="104" end="107" crap="2" executable="1" executed="1" coverage="100"/>
-      <method name="setAuthor" signature="setAuthor(?User $author): self" start="108" end="114" crap="2" executable="2" executed="2" coverage="100"/>
-      <method name="getSlug" signature="getSlug(): ?string" start="115" end="118" crap="2" executable="1" executed="1" coverage="100"/>
-      <method name="setSlug" signature="setSlug(string $slug): self" start="120" end="125" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getIsDone" signature="getIsDone()" start="94" end="97" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="setIsDone" signature="setIsDone($isDone)" start="99" end="102" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="toggle" signature="toggle($flag)" start="104" end="107" crap="1" executable="2" executed="2" coverage="100"/>
+      <method name="getAuthor" signature="getAuthor(): ?User" start="109" end="112" crap="2" executable="1" executed="1" coverage="100"/>
+      <method name="setAuthor" signature="setAuthor(?User $author): self" start="113" end="119" crap="2" executable="2" executed="2" coverage="100"/>
+      <method name="getSlug" signature="getSlug(): ?string" start="120" end="123" crap="2" executable="1" executed="1" coverage="100"/>
+      <method name="setSlug" signature="setSlug(string $slug): self" start="125" end="130" crap="1" executable="2" executed="2" coverage="100"/>
     </class>
     <coverage>
       <line nr="55">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
         <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testAttributeSupports"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testVoteOnAttribute"/>
       </line>
       <line nr="56">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
         <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testAttributeSupports"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testVoteOnAttribute"/>
       </line>
       <line nr="57">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
         <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testAttributeSupports"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testVoteOnAttribute"/>
       </line>
       <line nr="61">
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
@@ -58,102 +68,121 @@
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="76">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testList"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="81">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="82">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="86">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testList"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="91">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="92">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="96">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testList"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="101">
-        <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="102">
-        <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
         <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="106">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
-        <covered by="App\Tests\Controller\TaskControllerTest::testList"/>
-        <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
-        <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
-        <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
+        <covered by="App\Tests\Entity\TaskTest::testEntity"/>
+      </line>
+      <line nr="107">
+        <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Entity\TaskTest::testEntity"/>
       </line>
       <line nr="111">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
-        <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
-        <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
-      </line>
-      <line nr="113">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
-        <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
-        <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
-      </line>
-      <line nr="117">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testList"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
+      </line>
+      <line nr="116">
+        <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
+      </line>
+      <line nr="118">
+        <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Entity\TaskTest::testEntityRelations"/>
       </line>
       <line nr="122">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testList"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
-      <line nr="124">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
+      <line nr="127">
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+      </line>
+      <line nr="129">
+        <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
     </coverage>
     <source>
@@ -616,7 +645,7 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_FUNCTION">function</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">isDone</token>
+        <token name="T_STRING">getIsDone</token>
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
@@ -644,9 +673,9 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_FUNCTION">function</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">toggle</token>
+        <token name="T_STRING">setIsDone</token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$flag</token>
+        <token name="T_VARIABLE">$isDone</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
       <line no="100">
@@ -661,17 +690,48 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_EQUAL">=</token>
         <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$flag</token>
+        <token name="T_VARIABLE">$isDone</token>
         <token name="T_SEMICOLON">;</token>
       </line>
       <line no="102">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="103">
+      <line no="103"/>
+      <line no="104">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_PUBLIC">public</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_FUNCTION">function</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">toggle</token>
+        <token name="T_OPEN_BRACKET">(</token>
+        <token name="T_VARIABLE">$flag</token>
+        <token name="T_CLOSE_BRACKET">)</token>
+      </line>
+      <line no="105">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_OPEN_CURLY">{</token>
+      </line>
+      <line no="106">
+        <token name="T_WHITESPACE">        </token>
+        <token name="T_VARIABLE">$this</token>
+        <token name="T_OBJECT_OPERATOR">-&gt;</token>
+        <token name="T_STRING">isDone</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_EQUAL">=</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$flag</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="107">
+        <token name="T_WHITESPACE">    </token>
+        <token name="T_CLOSE_CURLY">}</token>
+      </line>
+      <line no="108">
         <token name="T_WHITESPACE">    </token>
       </line>
-      <line no="104">
+      <line no="109">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -685,11 +745,11 @@
         <token name="T_QUESTION_MARK">?</token>
         <token name="T_STRING">User</token>
       </line>
-      <line no="105">
+      <line no="110">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="106">
+      <line no="111">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -698,11 +758,11 @@
         <token name="T_STRING">author</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="107">
+      <line no="112">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="108">
+      <line no="113">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -719,12 +779,12 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">self</token>
       </line>
-      <line no="109"/>
-      <line no="110">
+      <line no="114"/>
+      <line no="115">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="111">
+      <line no="116">
         <token name="T_WHITESPACE">        </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -735,19 +795,19 @@
         <token name="T_VARIABLE">$author</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="112"/>
-      <line no="113">
+      <line no="117"/>
+      <line no="118">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="114">
+      <line no="119">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="115">
+      <line no="120">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -761,11 +821,11 @@
         <token name="T_QUESTION_MARK">?</token>
         <token name="T_STRING">string</token>
       </line>
-      <line no="116">
+      <line no="121">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="117">
+      <line no="122">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -774,12 +834,12 @@
         <token name="T_STRING">slug</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="118">
+      <line no="123">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="119"/>
-      <line no="120">
+      <line no="124"/>
+      <line no="125">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -795,11 +855,11 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">self</token>
       </line>
-      <line no="121">
+      <line no="126">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="122">
+      <line no="127">
         <token name="T_WHITESPACE">        </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
@@ -810,22 +870,22 @@
         <token name="T_VARIABLE">$slug</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="123"/>
-      <line no="124">
+      <line no="128"/>
+      <line no="129">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$this</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="125">
+      <line no="130">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="126">
+      <line no="131">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="127"/>
+      <line no="132"/>
     </source>
   </file>
 </phpunit>

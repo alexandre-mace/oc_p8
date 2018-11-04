@@ -2,49 +2,85 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="TaskVoter.php" path="/Security">
     <totals>
-      <lines total="54" comments="6" code="48" executable="15" executed="10" percent="66.67"/>
-      <methods count="3" tested="0" percent="0.00"/>
+      <lines total="50" comments="6" code="44" executable="14" executed="14" percent="100.00"/>
+      <methods count="3" tested="3" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
-      <classes count="1" tested="0" percent="0.00"/>
+      <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Security\TaskVoter" start="10" executable="15" executed="10" crap="10.37">
+    <class name="App\Security\TaskVoter" start="10" executable="14" executed="14" crap="8">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Security"/>
-      <method name="supports" signature="supports($attribute, $subject)" start="14" end="27" crap="3.58" executable="5" executed="3" coverage="60"/>
-      <method name="voteOnAttribute" signature="voteOnAttribute($attribute, $subject, TokenInterface $token)" start="29" end="46" crap="3.21" executable="7" executed="5" coverage="71.428571428571"/>
-      <method name="hasRight" signature="hasRight(Task $task, User $user)" start="48" end="54" crap="2.15" executable="3" executed="2" coverage="66.666666666667"/>
+      <method name="supports" signature="supports($attribute, $subject)" start="14" end="27" crap="3" executable="5" executed="5" coverage="100"/>
+      <method name="voteOnAttribute" signature="voteOnAttribute($attribute, $subject, TokenInterface $token)" start="29" end="42" crap="3" executable="6" executed="6" coverage="100"/>
+      <method name="hasRight" signature="hasRight(Task $task, User $user)" start="44" end="50" crap="2" executable="3" executed="3" coverage="100"/>
     </class>
     <coverage>
       <line nr="17">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testAttributeSupports"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testObjectSupports"/>
+      </line>
+      <line nr="18">
+        <covered by="App\Tests\Security\TaskVoterTest::testAttributeSupports"/>
       </line>
       <line nr="22">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testObjectSupports"/>
+      </line>
+      <line nr="23">
+        <covered by="App\Tests\Security\TaskVoterTest::testObjectSupports"/>
       </line>
       <line nr="26">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="31">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testVoteOnAttribute"/>
       </line>
       <line nr="33">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
+        <covered by="App\Tests\Security\TaskVoterTest::testVoteOnAttribute"/>
+      </line>
+      <line nr="35">
+        <covered by="App\Tests\Security\TaskVoterTest::testVoteOnAttribute"/>
       </line>
       <line nr="38">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="41">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="42">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
-      <line nr="50">
+      <line nr="46">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
-      <line nr="53">
+      <line nr="47">
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+      </line>
+      <line nr="49">
         <covered by="App\Tests\Controller\TaskControllerTest::testDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
     </coverage>
     <source>
@@ -131,7 +167,7 @@
         <token name="T_OPEN_CURLY">{</token>
       </line>
       <line no="12">
-        <token name="T_WHITESPACE">        </token>
+        <token name="T_WHITESPACE">    </token>
         <token name="T_CONST">const</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">DELETE</token>
@@ -143,7 +179,7 @@
       </line>
       <line no="13"/>
       <line no="14">
-        <token name="T_WHITESPACE">        </token>
+        <token name="T_WHITESPACE">    </token>
         <token name="T_PROTECTED">protected</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_FUNCTION">function</token>
@@ -157,7 +193,7 @@
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
       <line no="15">
-        <token name="T_WHITESPACE">        </token>
+        <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
       <line no="16">
@@ -353,31 +389,13 @@
         <token name="T_VARIABLE">$user</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
+        <token name="T_CLOSE_CURLY">}</token>
+        <token name="T_CLOSE_CURLY">}</token>
       </line>
       <line no="43">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_CLOSE_CURLY">}</token>
-      </line>
-      <line no="44"/>
-      <line no="45">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_THROW">throw</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_NEW">new</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_NS_SEPARATOR">\</token>
-        <token name="T_STRING">LogicException</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'This code should not be reached!'</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="46">
         <token name="T_WHITESPACE">    </token>
-        <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="47"/>
-      <line no="48">
+      <line no="44">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PRIVATE">private</token>
         <token name="T_WHITESPACE"> </token>
@@ -395,11 +413,11 @@
         <token name="T_VARIABLE">$user</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="49">
+      <line no="45">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="50">
+      <line no="46">
         <token name="T_WHITESPACE">        </token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
@@ -421,7 +439,7 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="51">
+      <line no="47">
         <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -436,11 +454,11 @@
         <token name="T_CONSTANT_ENCAPSED_STRING">"ROLE_ADMIN"</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="52">
+      <line no="48">
         <token name="T_WHITESPACE">        </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="53">
+      <line no="49">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -455,11 +473,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="54">
+      <line no="50">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="55">
+      <line no="51">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
     </source>

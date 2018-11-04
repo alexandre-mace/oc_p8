@@ -2,33 +2,27 @@
 <phpunit xmlns="http://schema.phpunit.de/coverage/1.0">
   <file name="UserController.php" path="/Controller">
     <totals>
-      <lines total="72" comments="12" code="60" executable="22" executed="22" percent="100.00"/>
+      <lines total="50" comments="12" code="38" executable="9" executed="9" percent="100.00"/>
       <methods count="3" tested="3" percent="100.00"/>
       <functions count="0" tested="0" percent="0"/>
       <classes count="1" tested="1" percent="100.00"/>
       <traits count="0" tested="0" percent="0"/>
     </totals>
-    <class name="App\Controller\UserController" start="15" executable="22" executed="22" crap="7">
+    <class name="App\Controller\UserController" start="17" executable="9" executed="9" crap="5">
       <package full="" name="" sub="" category=""/>
       <namespace name="App\Controller"/>
-      <method name="listAction" signature="listAction()" start="20" end="23" crap="1" executable="1" executed="1" coverage="100"/>
-      <method name="createAction" signature="createAction(Request $request)" start="28" end="48" crap="3" executable="12" executed="12" coverage="100"/>
-      <method name="editAction" signature="editAction(User $user, Request $request)" start="53" end="71" crap="3" executable="9" executed="9" coverage="100"/>
+      <method name="listAction" signature="listAction()" start="22" end="25" crap="1" executable="1" executed="1" coverage="100"/>
+      <method name="createAction" signature="createAction(Request $request, CreateUserHandler $handler)" start="30" end="37" crap="2" executable="4" executed="4" coverage="100"/>
+      <method name="editAction" signature="editAction(User $user, Request $request, EditUserHandler $handler)" start="42" end="49" crap="2" executable="4" executed="4" coverage="100"/>
     </class>
     <coverage>
-      <line nr="22">
+      <line nr="24">
         <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
         <covered by="App\Tests\Controller\UserControllerTest::testList"/>
         <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
-      <line nr="30">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogout"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="31">
+      <line nr="32">
         <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
         <covered by="App\Tests\Controller\SecurityControllerTest::testLogout"/>
         <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
@@ -42,76 +36,25 @@
       </line>
       <line nr="34">
         <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogout"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="35">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
         <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
       <line nr="36">
         <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="37">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="39">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="40">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="42">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="44">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="47">
-        <covered by="App\Tests\Controller\SecurityControllerTest::testLogin"/>
         <covered by="App\Tests\Controller\SecurityControllerTest::testLogout"/>
         <covered by="App\Tests\Controller\UserControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
-      <line nr="55">
+      <line nr="44">
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
-      <line nr="57">
+      <line nr="45">
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
-      <line nr="59">
+      <line nr="46">
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
-      <line nr="60">
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="61">
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="63">
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="65">
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="67">
-        <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
-      </line>
-      <line nr="70">
+      <line nr="48">
         <covered by="App\Tests\Controller\UserControllerTest::testEdit"/>
       </line>
     </coverage>
@@ -203,17 +146,37 @@
         <token name="T_STRING">Security</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="11"/>
+      <line no="11">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Handler</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">CreateUserHandler</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
       <line no="12">
+        <token name="T_USE">use</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">App</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">Handler</token>
+        <token name="T_NS_SEPARATOR">\</token>
+        <token name="T_STRING">EditUserHandler</token>
+        <token name="T_SEMICOLON">;</token>
+      </line>
+      <line no="13"/>
+      <line no="14">
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="13">
+      <line no="15">
         <token name="T_DOC_COMMENT"> * @Security("is_granted('ROLE_ADMIN')") </token>
       </line>
-      <line no="14">
+      <line no="16">
         <token name="T_DOC_COMMENT"> */</token>
       </line>
-      <line no="15">
+      <line no="17">
         <token name="T_CLASS">class</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">UserController</token>
@@ -222,20 +185,20 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_STRING">Controller</token>
       </line>
-      <line no="16">
+      <line no="18">
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="17">
+      <line no="19">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="18">
+      <line no="20">
         <token name="T_DOC_COMMENT">     * @Route("/users", name="user_list")</token>
       </line>
-      <line no="19">
+      <line no="21">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="20">
+      <line no="22">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -245,11 +208,11 @@
         <token name="T_OPEN_BRACKET">(</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="21">
+      <line no="23">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="22">
+      <line no="24">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -283,22 +246,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="23">
+      <line no="25">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="24"/>
-      <line no="25">
+      <line no="26"/>
+      <line no="27">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="26">
+      <line no="28">
         <token name="T_DOC_COMMENT">     * @Route("/users/create", name="user_create")</token>
       </line>
-      <line no="27">
+      <line no="29">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="28">
+      <line no="30">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -309,26 +272,18 @@
         <token name="T_STRING">Request</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$request</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">CreateUserHandler</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$handler</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="29">
+      <line no="31">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="30">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_NEW">new</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_STRING">User</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="31">
+      <line no="32">
         <token name="T_WHITESPACE">        </token>
         <token name="T_VARIABLE">$form</token>
         <token name="T_WHITESPACE"> </token>
@@ -341,16 +296,7 @@
         <token name="T_STRING">UserType</token>
         <token name="T_DOUBLE_COLON">::</token>
         <token name="T_CLASS">class</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$user</token>
         <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="32"/>
-      <line no="33">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_VARIABLE">$form</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
         <token name="T_STRING">handleRequest</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -358,117 +304,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="34">
+      <line no="33">
         <token name="T_WHITESPACE">        </token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$form</token>
+        <token name="T_VARIABLE">$handler</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">isSubmitted</token>
+        <token name="T_STRING">handle</token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
-        <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$form</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">isValid</token>
-        <token name="T_OPEN_BRACKET">(</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="35">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$manager</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">getDoctrine</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">getManager</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="36">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$password</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">get</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'security.password_encoder'</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">encodePassword</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">getPassword</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="37">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">setPassword</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$password</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="38"/>
-      <line no="39">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$manager</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">persist</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="40">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$manager</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">flush</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="41"/>
-      <line no="42">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">addFlash</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'success'</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"L'utilisateur a bien &#xE9;t&#xE9; ajout&#xE9;."</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="43"/>
-      <line no="44">
+      <line no="34">
         <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -480,12 +331,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="45">
+      <line no="35">
         <token name="T_WHITESPACE">        </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="46"/>
-      <line no="47">
+      <line no="36">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -510,22 +360,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="48">
+      <line no="37">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="49"/>
-      <line no="50">
+      <line no="38"/>
+      <line no="39">
         <token name="T_WHITESPACE">    </token>
         <token name="T_DOC_COMMENT">/**</token>
       </line>
-      <line no="51">
+      <line no="40">
         <token name="T_DOC_COMMENT">     * @Route("/users/{id}/edit", name="user_edit")</token>
       </line>
-      <line no="52">
+      <line no="41">
         <token name="T_DOC_COMMENT">     */</token>
       </line>
-      <line no="53">
+      <line no="42">
         <token name="T_WHITESPACE">    </token>
         <token name="T_PUBLIC">public</token>
         <token name="T_WHITESPACE"> </token>
@@ -541,13 +391,18 @@
         <token name="T_STRING">Request</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$request</token>
+        <token name="T_COMMA">,</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_STRING">EditUserHandler</token>
+        <token name="T_WHITESPACE"> </token>
+        <token name="T_VARIABLE">$handler</token>
         <token name="T_CLOSE_BRACKET">)</token>
       </line>
-      <line no="54">
+      <line no="43">
         <token name="T_WHITESPACE">    </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="55">
+      <line no="44">
         <token name="T_WHITESPACE">        </token>
         <token name="T_VARIABLE">$form</token>
         <token name="T_WHITESPACE"> </token>
@@ -564,12 +419,6 @@
         <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$user</token>
         <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="56"/>
-      <line no="57">
-        <token name="T_WHITESPACE">        </token>
-        <token name="T_VARIABLE">$form</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
         <token name="T_STRING">handleRequest</token>
         <token name="T_OPEN_BRACKET">(</token>
@@ -577,99 +426,22 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="58"/>
-      <line no="59">
+      <line no="45">
         <token name="T_WHITESPACE">        </token>
         <token name="T_IF">if</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$form</token>
+        <token name="T_VARIABLE">$handler</token>
         <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">isSubmitted</token>
+        <token name="T_STRING">handle</token>
         <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_BOOLEAN_AND">&amp;&amp;</token>
-        <token name="T_WHITESPACE"> </token>
         <token name="T_VARIABLE">$form</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">isValid</token>
-        <token name="T_OPEN_BRACKET">(</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_WHITESPACE"> </token>
         <token name="T_OPEN_CURLY">{</token>
       </line>
-      <line no="60">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$password</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_EQUAL">=</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">get</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'security.password_encoder'</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">encodePassword</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">getPassword</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="61">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$user</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">setPassword</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_VARIABLE">$password</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="62"/>
-      <line no="63">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">getDoctrine</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">getManager</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">flush</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="64"/>
-      <line no="65">
-        <token name="T_WHITESPACE">            </token>
-        <token name="T_VARIABLE">$this</token>
-        <token name="T_OBJECT_OPERATOR">-&gt;</token>
-        <token name="T_STRING">addFlash</token>
-        <token name="T_OPEN_BRACKET">(</token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">'success'</token>
-        <token name="T_COMMA">,</token>
-        <token name="T_WHITESPACE"> </token>
-        <token name="T_CONSTANT_ENCAPSED_STRING">"L'utilisateur a bien &#xE9;t&#xE9; modifi&#xE9;"</token>
-        <token name="T_CLOSE_BRACKET">)</token>
-        <token name="T_SEMICOLON">;</token>
-      </line>
-      <line no="66"/>
-      <line no="67">
+      <line no="46">
         <token name="T_WHITESPACE">            </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -681,12 +453,11 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="68">
+      <line no="47">
         <token name="T_WHITESPACE">        </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="69"/>
-      <line no="70">
+      <line no="48">
         <token name="T_WHITESPACE">        </token>
         <token name="T_RETURN">return</token>
         <token name="T_WHITESPACE"> </token>
@@ -718,14 +489,14 @@
         <token name="T_CLOSE_BRACKET">)</token>
         <token name="T_SEMICOLON">;</token>
       </line>
-      <line no="71">
+      <line no="49">
         <token name="T_WHITESPACE">    </token>
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="72">
+      <line no="50">
         <token name="T_CLOSE_CURLY">}</token>
       </line>
-      <line no="73"/>
+      <line no="51"/>
     </source>
   </file>
 </phpunit>

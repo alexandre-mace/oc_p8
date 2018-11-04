@@ -10,7 +10,6 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class TaskControllerTest extends WebTestCase
 {
-
     public function testList()
     {
         $client = static::createClient();

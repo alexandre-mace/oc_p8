@@ -15,34 +15,39 @@
     </class>
     <coverage>
       <line nr="9">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="10">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="11">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="12">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
       <line nr="13">
-        <covered by="App\Tests\Command\loadFixturesCommandTest::testLoad"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testCreate"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testEdit"/>
         <covered by="App\Tests\Controller\TaskControllerTest::testToggleTask"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testAnonDelete"/>
+        <covered by="App\Tests\Controller\TaskControllerTest::testDeleteException"/>
       </line>
     </coverage>
     <source>
