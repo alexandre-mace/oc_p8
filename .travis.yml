@@ -16,11 +16,11 @@ before-install:
 # Install composer dependencies,
 # Create database, schema and fixtures
 install:
-  - composer install -n
+  - composer install 
   - cp app/config/parameters.yml.dist app/config/parameters.yml
   - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:update --force
-  - php bin/console hautelook:fixtures:load -n --env=test
+  - php bin/console hautelook:fixtures:load --env=test
 
 # Run script
 script:
