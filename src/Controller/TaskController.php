@@ -25,7 +25,6 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/create", name="task_create")
-     * @Security("is_granted('ROLE_USER')")
      */
     public function create(Request $request, CreateTaskHandler $handler)
     {
@@ -38,7 +37,6 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/{slug}/edit", name="task_edit")
-     * @Security("is_granted('ROLE_USER')")
      */
     public function edit(Task $task, Request $request, EditTaskHandler $handler)
     {
@@ -54,7 +52,6 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/{slug}/toggle", name="task_toggle")
-     * @Security("is_granted('ROLE_USER')")     
      */
     public function toggle(Task $task, ToggleTaskHandler $handler)
     {
@@ -64,7 +61,6 @@ class TaskController extends Controller
 
     /**
      * @Route("/tasks/{slug}/delete", name="task_delete")
-     * @Security("is_granted('ROLE_USER')")
      */
     public function deleteTask(Task $task, DeleteTaskHandler $handler)
     {
