@@ -11,13 +11,13 @@ services:
 
 # Update composer
 before-install:
-  - mysql -e 'CREATE DATABASE todolist;'
   - composer self-update
 
 # Install composer dependencies,
 # Create database, schema and fixtures
 install:
   - composer update 
+  - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:update --force
   - php bin/console hautelook:fixtures:load --env=test
 
