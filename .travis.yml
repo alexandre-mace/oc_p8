@@ -4,7 +4,13 @@ cache:
     directories:
         - $HOME/.composer/cache/files
         - $HOME/symfony-bridge/.phpunit
-
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      - mysql-client
 env:
     global:
         - PHPUNIT_FLAGS="-v"
