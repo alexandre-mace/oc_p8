@@ -23,7 +23,7 @@ before-install:
 
 # In case of timeouts and build failures you may want to prepend 'travis_retry' to the following commands:
 install:
-  - composer install
+  - composer update
   - php bin/console doctrine:database:create --env=test
   - php bin/console doctrine:schema:create --env=test
   - php bin/console hautelook:fixtures:load -n --env=test
