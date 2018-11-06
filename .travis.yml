@@ -1,21 +1,26 @@
 language: php
+
 php:
-  - '7.1'
+  - 7.0
+  - 7.1
 
 services:
   - mysql
 
-test:
-  adapter: mysql2
-  database: symfony
-  username: travis
-  encoding: utf8
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
 
-before_install:
-  - mysql -e 'CREATE DATABASE symfony;'
+dist: trusty
+
+sudo: required
 
 # In case of timeouts and build failures you may want to prepend 'travis_retry' to the following commands:
 before_script:
+  - mysql -e 'create database todolist;'
   - composer install -n
   - php bin/console doctrine:schema:update --force
   - php bin/console doctrine:fixtures:load -n
