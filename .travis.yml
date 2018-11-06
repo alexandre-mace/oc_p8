@@ -26,5 +26,5 @@ before_script:
   - php bin/console hautelook:fixtures:load -n
 
 script:
-  - /bin/phpunit
+  - ./bin/phpunit
 
