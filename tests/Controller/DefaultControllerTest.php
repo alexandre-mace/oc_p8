@@ -14,9 +14,6 @@ class DefaultControllerTest extends WebTestCase
         ));
 
         $crawler = $client->request('GET', '/');
-        var_dump($client->getResponse()->getContent());
-        $crawler = $client->followRedirect();
-        var_dump($client->getResponse()->getContent());
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
         $this->assertContains('Bienvenue sur Todo List', $crawler->filter('.container h1')->text());
     }
