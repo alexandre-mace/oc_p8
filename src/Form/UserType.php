@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use App\Entity\User;
+use Symfony\Component\Form\CallbackTransformer;
 
 class UserType extends AbstractType
 {
@@ -26,7 +27,7 @@ class UserType extends AbstractType
                 'second_options' => ['label' => 'Tapez le mot de passe à nouveau'],
             ])
             ->add('email', EmailType::class, ['label' => 'Adresse email'])
-            ->add('role', ChoiceType::class, [
+            ->add('roles', ChoiceType::class, [
                 'label'     => 'Role de l\'utilisateur',
                 'choices' => array(
                     'Utilisateur'    => 'ROLE_USER',
@@ -35,6 +36,18 @@ class UserType extends AbstractType
                 'multiple'  => false,
                 'expanded'  => true
             ])
+        ;
+        $builder->get('roles')
+            ->addModelTransformer(new CallbackTransformer(
+                function ($rolesAsArray) {
+                    // transform the array to a string
+                    return $rolesAsArray[0];
+                },
+                function ($rolesAsString) {
+                    // transform the string back to an array
+                    return [$rolesAsString];
+                }
+            ))
         ;
     }
     

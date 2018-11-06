@@ -12,7 +12,10 @@ class TaskControllerTest extends WebTestCase
 {
     public function testList()
     {
-        $client = static::createClient();
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'a',
+            'PHP_AUTH_PW' => 'a'
+        ));
         $client->request('GET', '/tasks');
         $this->assertTrue($client->getResponse()->isSuccessful());
     }

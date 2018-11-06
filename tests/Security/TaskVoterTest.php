@@ -32,9 +32,4 @@ class TaskVoterTest extends TestCase
         $token = $this->createMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $this->assertEquals(false, $voter->exposedVoteOnAttribute('delete', $task, $token));        
     }
-
-    protected function setup()
-    {
-        $this->prophet = new \Prophecy\Prophet;
-    }
 }

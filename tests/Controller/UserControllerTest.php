@@ -37,7 +37,7 @@ class UserControllerTest extends WebTestCase
             $form['user[plainPassword][first]'] = 'test';
             $form['user[plainPassword][second]'] = 'test';
             $form['user[email]'] = 'test' . rand() . '@test.com';
-            $form['user[role]']->select('ROLE_ADMIN');
+            $form['user[roles]']->select('ROLE_ADMIN');
             $client->submit($form);
 
             $this->assertTrue($client->getResponse()->isRedirection());
@@ -69,7 +69,7 @@ class UserControllerTest extends WebTestCase
             $form['user[email]'] = 'test' . rand() . '@test.com';
             $form['user[plainPassword][first]'] = 'test';
             $form['user[plainPassword][second]'] = 'test';
-            $form['user[role]']->select('ROLE_ADMIN');
+            $form['user[roles]']->select('ROLE_ADMIN');
             $client->submit($form);
 
             $this->assertTrue($client->getResponse()->isRedirection());

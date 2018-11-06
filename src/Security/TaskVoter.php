@@ -44,7 +44,7 @@ class TaskVoter extends Voter
     private function hasRight(Task $task, User $user)
     {
         if ($task->getAuthor()->getUsername() === "anon") {
-            return $user->getRole() === "ROLE_ADMIN";
+            return in_array('ROLE_ADMIN', $user->getRoles());
         }
         return $user === $task->getAuthor();
     }

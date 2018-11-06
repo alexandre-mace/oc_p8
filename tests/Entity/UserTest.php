@@ -13,12 +13,12 @@ class UserTest extends TestCase
         $user->setUsername('Username test');
         $user->setPassword('Userpassword test');
         $user->setEmail('usertest@test.com');
-        $user->setRole('ROLE_ADMIN');
+        $user->setRoles(['ROLE_ADMIN']);
 
         $this->assertEquals('Username test', $user->getUsername());
         $this->assertEquals('Userpassword test', $user->getPassword());
         $this->assertEquals('usertest@test.com', $user->getEmail());
-        $this->assertEquals('ROLE_ADMIN', $user->getRole());
+        $this->assertEquals(true, in_array('ROLE_ADMIN', $user->getRoles()));
         $this->assertNull($user->getId());
     }
 }

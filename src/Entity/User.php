@@ -48,9 +48,9 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="json")
      */
-    protected $role;
+    private $roles = [];
 
     public function getId()
     {
@@ -102,23 +102,23 @@ class User implements UserInterface
         $this->email = $email;
     }
 
-    public function getRole()
+    public function getRoles(): array
     {
-        return $this->role;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
     }
     
-    public function setRole($role)
+    public function setRoles(array $roles)
     {
-        $this->role = $role;
+        $this->roles = $roles;
         return $this;
-    }
- 
-    public function getRoles()
-    {
-        return array($this->role);
     }
 
     public function eraseCredentials()
     {
+        $this->plainPassword = null;
     }
 }
