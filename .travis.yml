@@ -23,7 +23,7 @@ before_script:
   - mysql -e 'create database todolist;'
   - composer update
   - php bin/console doctrine:schema:update --force
-  - php bin/console doctrine:fixtures:load -n
+  - php bin/console hautelook:fixtures:load -n
 
 script:
   - /bin/phpunit
