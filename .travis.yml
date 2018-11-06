@@ -1,30 +1,25 @@
-# Project language
 language: php
 php:
   - '7.1'
-mysql: 
-  - '5.7'
-# Allows use container-based infrastructure
-sudo: false
 
-# Start mysql service
 services:
   - mysql
 
-# Update composer
-before-install:
-  - composer self-update
+test:
+  adapter: mysql2
+  database: symfony
+  username: travis
+  encoding: utf8
 
-# Install composer dependencies,
-# Create database, schema and fixtures
-install:
-  - composer update 
-  - php bin/console doctrine:database:create
-  - php bin/console doctrine:schema:update --force
-  - php bin/console hautelook:fixtures:load  -n
+before_install:
+  - mysql -e 'CREATE DATABASE symfony;'
 
-# Run script
-script:
-  - ./bin/phpunit 
 # In case of timeouts and build failures you may want to prepend 'travis_retry' to the following commands:
+before_script:
+  - composer install -n
+  - php bin/console doctrine:schema:update --force
+  - php bin/console doctrine:fixtures:load -n
+
+script:
+  - /bin/phpunit
 
