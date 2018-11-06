@@ -23,8 +23,6 @@ install:
 
 # Run script
 script:
-  - ./bin/phpunit --coverage-xml build/coverage-xml
+  - ./bin/phpunit 
 # In case of timeouts and build failures you may want to prepend 'travis_retry' to the following commands:
 
-after_script:
-  - vendor/bin/codacycoverage phpunit
