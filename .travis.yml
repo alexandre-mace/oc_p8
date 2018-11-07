@@ -1,5 +1,7 @@
 language: php
 sudo: false
+services:
+    - mysql
 cache:
     directories:
         - $HOME/.composer/cache/files
@@ -13,6 +15,7 @@ addons:
       - mysql-client
 env:
     global:
+        - DATABASE_URL="mysql://root:@127.0.0.1:3306/todolist"
         - PHPUNIT_FLAGS="-v"
         - SYMFONY_PHPUNIT_DIR="$HOME/symfony-bridge/.phpunit"
 
@@ -23,9 +26,13 @@ matrix:
           env: COVERAGE=true PHPUNIT_FLAGS="-v --coverage-text"
 
 before_install:
+    - sudo mysql -e "use mysql; update user set authentication_string=PASSWORD('') where User='root'; update user set plugin='mysql_native_password';FLUSH PRIVILEGES;"
+    - sudo mysql_upgrade
+    - sudo service mysql restart
     - if [[ $COVERAGE != true ]]; then phpenv config-rm xdebug.ini || true; fi
     - if ! [ -z "$STABILITY" ]; then composer config minimum-stability ${STABILITY}; fi;
     - if ! [ -v "$DEPENDENCIES" ]; then composer require --no-update ${DEPENDENCIES}; fi;
+    - mysql -e 'CREATE DATABASE IF NOT EXISTS todolist;'
 
 install:
     # To be removed when this issue will be resolved: https://github.com/composer/composer/issues/5355
