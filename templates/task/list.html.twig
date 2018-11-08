@@ -12,11 +12,7 @@
                     <h4 class="pull-right">
                         {% if task.isDone %}<span class="glyphicon glyphicon-ok"></span>{% else %}<span class="glyphicon glyphicon-remove"></span>{% endif %}
                     </h4>
-<<<<<<< HEAD:app/Resources/views/task/list.html.twig
-                    <h4><a href="{{ path('task_edit', {'id' : task.id }) }}">{{ task.title }}</a></h4>
-=======
                     <h4><a href="{{ path('task_edit', {slug : task.slug }) }}">{{ task.title }} <span class="badge badge-pill badge-primary">{{ task.author.username }}</span></a></h4>
->>>>>>> dev:templates/task/list.html.twig
                     <p>{{ task.content }}</p>
                 </div>
                 <div>

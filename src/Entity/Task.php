@@ -40,8 +40,6 @@ class Task
      */
     private $isDone;
 
-<<<<<<< HEAD:src/AppBundle/Entity/Task.php
-=======
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\User")
      */
@@ -52,7 +50,6 @@ class Task
      */
     private $slug;
 
->>>>>>> dev:src/Entity/Task.php
     public function __construct()
     {
         $this->createdAt = new \Datetime();
