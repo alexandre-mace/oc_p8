@@ -1,5 +1,7 @@
 # ToDo & Co
 
+[![Build Status](https://travis-ci.org/alexandre-mace/oc_p8.svg?branch=dev)](https://travis-ci.org/alexandre-mace/oc_p8)
+
 Enhance an existing Symfony 3 application, 8th project from OpenClassroom's class
 
 ## Requirements 

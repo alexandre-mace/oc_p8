@@ -39,7 +39,6 @@ class UserSubscriber implements EventSubscriber
     {
         $entity = $args->getObject();
 
-        // upload only works for Trick entities
         if (!$entity instanceof User) {
             return;
         }
