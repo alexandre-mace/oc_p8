@@ -4,7 +4,6 @@ Base du projet #8 : Améliorez un projet existant
 =======
 
 [![Build Status](https://travis-ci.org/alexandre-mace/oc_p8.svg?branch=dev)](https://travis-ci.org/alexandre-mace/oc_p8)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/fa3af388fcac4778abc3db674b7f9a4c)](https://app.codacy.com/app/codacy_alexandre-mace/oc_p8?utm_source=github.com&utm_medium=referral&utm_content=alexandre-mace/oc_p8&utm_campaign=Badge_Grade_Dashboard)
 
 Enhance an existing Symfony 3 application, 8th project from OpenClassroom's class
