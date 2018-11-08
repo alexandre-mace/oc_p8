@@ -1,6 +1,7 @@
 {
     "name": "saro0h/to-do-list",
     "license": "proprietary",
+    "description": "To Do List",
     "type": "project",
     "autoload": {
         "psr-4": {
