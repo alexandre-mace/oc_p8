@@ -16,19 +16,22 @@ class TaskVoterTest extends TestCase
     public function testAttributeSupports()
     {
         $task = new Task;
-        $voter = new ExposedTaskVoter;
+        $authChecker = $this->createMock('Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface');
+        $voter = new ExposedTaskVoter($authChecker);
         $this->assertEquals(false, $voter->exposedSupports('abracadabra', $task));
     }
     public function testObjectSupports()
     {
         $user = new User;
-        $voter = new ExposedTaskVoter;
+        $authChecker = $this->createMock('Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface');
+        $voter = new ExposedTaskVoter($authChecker);
         $this->assertEquals(false, $voter->exposedSupports('delete', $user));
     }
     public function testVoteOnAttribute()
     {
         $task = new Task;
-        $voter = new ExposedTaskVoter;
+        $authChecker = $this->createMock('Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface');
+        $voter = new ExposedTaskVoter($authChecker);
         $token = $this->createMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $this->assertEquals(false, $voter->exposedVoteOnAttribute('delete', $task, $token));        
     }

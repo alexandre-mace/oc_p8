@@ -105,8 +105,6 @@ class Task
     {
         $this->isDone = $flag;
     }
-<<<<<<< HEAD:src/AppBundle/Entity/Task.php
-=======
     
     public function getAuthor(): ?User
     {
@@ -130,5 +128,4 @@ class Task
 
         return $this;
     }
->>>>>>> dev:src/Entity/Task.php
 }
