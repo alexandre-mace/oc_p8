@@ -6,10 +6,17 @@ use App\Entity\Task;
 use App\Entity\User;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
+use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 
 class TaskVoter extends Voter
 {
     const DELETE = 'delete';
+    private $authChecker;
+
+    public function __construct(AuthorizationCheckerInterface $authChecker)
+    {
+        $this->authChecker = $authChecker;
+    }
 
     protected function supports($attribute, $subject)
     {
@@ -39,12 +46,14 @@ class TaskVoter extends Voter
 
         switch ($attribute) {
             case self::DELETE:
-                return $this->hasRight($task, $user);}}
+                return $this->hasRight($task, $user);
+        }
+    }
     
     private function hasRight(Task $task, User $user)
     {
         if ($task->getAuthor()->getUsername() === "anon") {
-            return in_array('ROLE_ADMIN', $user->getRoles());
+            return $this->authChecker->isGranted('ROLE_ADMIN');
         }
         return $user === $task->getAuthor();
     }

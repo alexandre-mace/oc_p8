@@ -8,6 +8,8 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
+use App\Repository\UserRepository;
+use Doctrine\ORM\EntityManagerInterface;
 
 class UserControllerTest extends WebTestCase
 {
@@ -105,5 +107,20 @@ class UserControllerTest extends WebTestCase
             (string)$clientEditedName,
             $client->getResponse()->getContent()
         );
+    }
+
+    public function testInstanciateRepository() 
+    {
+        $metadata = $this->createMock('Doctrine\ORM\Mapping\ClassMetadata');
+        $manager = $this->createMock('Doctrine\ORM\EntityManagerInterface');
+        $manager->expects($this->any())
+            ->method('getClassMetadata')
+            ->willReturn($metadata);
+        $registry = $this->createMock('Symfony\Bridge\Doctrine\RegistryInterface');
+        $registry->expects($this->any())
+            ->method('getManagerForClass')
+            ->willReturn($manager);
+        $repository = new UserRepository($registry);
+        $this->assertTrue($repository instanceof UserRepository);
     }
 }
