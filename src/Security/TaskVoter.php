@@ -4,6 +4,7 @@ namespace App\Security;
 
 use App\Entity\Task;
 use App\Entity\User;
+use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Authorization\Voter\Voter;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
@@ -48,6 +49,7 @@ class TaskVoter extends Voter
             case self::DELETE:
                 return $this->hasRight($task, $user);
         }
+        throw new LogicException('This code shouldn\'t be reached');
     }
     
     private function hasRight(Task $task, User $user)

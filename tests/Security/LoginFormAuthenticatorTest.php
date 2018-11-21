@@ -58,8 +58,4 @@ class LoginFormAuthenticatorTest extends TestCase
             $this->assertTrue($exception instanceof CustomUserMessageAuthenticationException);
         }       
     }
-
-    public function testOnAuthenticationSuccess(){
-        
-    }
 }

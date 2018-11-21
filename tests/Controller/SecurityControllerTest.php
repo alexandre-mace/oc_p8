@@ -78,4 +78,24 @@ class SecurityControllerTest extends WebTestCase
             $this->assertEquals(200, $client->getResponse()->getStatusCode());
         }
     }
+
+    public function testOnAuthenticationSuccessWithTargetPath(){
+        $client = self::createClient();
+        $client->request('GET', '/tasks');
+        $this->assertTrue($client->getResponse()->isRedirection());
+        $crawler = $client->followRedirect();
+
+        $form = $crawler->selectButton('Se connecter')->form();
+        $crawler = $client
+            ->submit($form,
+                array(
+                    'username' => 'a',
+                    'password' => 'a',
+                )
+            );
+
+        $this->assertTrue($client->getResponse()->isRedirection());
+        $crawler = $client->followRedirect();
+        $this->assertEquals(200, $client->getResponse()->getStatusCode());
+    }
 }

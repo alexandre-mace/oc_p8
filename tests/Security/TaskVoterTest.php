@@ -2,6 +2,7 @@
 
 namespace App\Tests\Security;
 
+use Symfony\Component\Form\Exception\LogicException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use App\Entity\Task;
@@ -34,5 +35,22 @@ class TaskVoterTest extends TestCase
         $voter = new ExposedTaskVoter($authChecker);
         $token = $this->createMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
         $this->assertEquals(false, $voter->exposedVoteOnAttribute('delete', $task, $token));        
+    }
+
+    public function testVoteOnAttributeLogicExeption()
+    {
+        $task = new Task;
+        $authChecker = $this->createMock('Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface');
+        $voter = new ExposedTaskVoter($authChecker);
+        $token = $this->createMock('Symfony\Component\Security\Core\Authentication\Token\TokenInterface');
+        $user = new User();
+        $token->expects($this->any())
+            ->method('getUser')
+            ->willReturn($user);
+        try {
+            $voter->exposedVoteOnAttribute('abracadabra', $task, $token);
+        } catch (LogicException $exception) {
+            $this->assertTrue($exception instanceof LogicException);
+        }
     }
 }
