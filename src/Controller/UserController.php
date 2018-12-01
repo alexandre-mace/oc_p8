@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,16 +13,17 @@ use App\Handler\CreateUserHandler;
 use App\Handler\EditUserHandler;
 
 /**
- * @Security("is_granted('ROLE_ADMIN')") 
+ * @Security("is_granted('ROLE_ADMIN')")
  */
 class UserController extends Controller
 {
     /**
      * @Route("/users", name="user_list")
      */
-    public function listAction()
+    public function listAction(UserRepository $repository)
     {
-        return $this->render('user/list.html.twig', ['users' => $this->getDoctrine()->getRepository('App:User')->findAll()]);
+        $response = $this->render('user/list.html.twig', ['users' => $repository->findAll()]);
+        return $response;
     }
 
     /**

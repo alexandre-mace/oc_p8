@@ -47,4 +47,15 @@ class UserRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findAll()
+    {
+        $query =  $this->getEntityManager()
+            ->createQuery(
+                'SELECT u FROM App\Entity\User u'
+            )
+            ->useResultCache(true)
+            ->setResultCacheLifetime(3600); //3600sec = 1 hour
+        return $query->getResult();
+    }
 }

@@ -11,7 +11,6 @@ use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
 class SecurityControllerTest extends WebTestCase
 {
-
     public function testLogin()
     {
         $client = static::createClient(array(), array(

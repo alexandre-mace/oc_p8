@@ -12,6 +12,9 @@ use App\Handler\EditTaskHandler;
 use App\Handler\DeleteTaskHandler;
 use App\Handler\ToggleTaskHandler;
 
+/**
+ * Class TaskController
+ */
 class TaskController extends Controller
 {
     /**
@@ -50,18 +53,18 @@ class TaskController extends Controller
     }
 
     /**
-     * @Route("/tasks/{slug}/toggle", name="task_toggle")
+     * @Route("/tasks/{slug}/delete", name="task_delete")
      */
-    public function toggle(Task $task, ToggleTaskHandler $handler)
+    public function delete(Task $task, DeleteTaskHandler $handler)
     {
         $handler->handle($task);
         return $this->redirectToRoute('task_list');
     }
 
     /**
-     * @Route("/tasks/{slug}/delete", name="task_delete")
+     * @Route("/tasks/{slug}/toggle", name="task_toggle")
      */
-    public function deleteTask(Task $task, DeleteTaskHandler $handler)
+    public function toggle(Task $task, ToggleTaskHandler $handler)
     {
         $handler->handle($task);
         return $this->redirectToRoute('task_list');
