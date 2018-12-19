@@ -38,13 +38,4 @@ class UserListener
         }
         $this->cacheDriver->expire('[users_all][1]', 0);
     }
-
-    public function postRemove(LifecycleEventArgs $args)
-    {
-        $entity = $args->getObject();
-        if (!$entity instanceof User) {
-            return;
-        }
-        $this->cacheDriver->expire('[users_all][1]', 0);
-    }
 }

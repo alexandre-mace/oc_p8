@@ -10,13 +10,22 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class TaskControllerTest extends WebTestCase
 {
-    public function testList()
+    public function testToDoList()
     {
         $client = static::createClient(array(), array(
             'PHP_AUTH_USER' => 'a',
             'PHP_AUTH_PW' => 'a'
         ));
         $client->request('GET', '/tasks/todo');
+        $this->assertTrue($client->getResponse()->isSuccessful());
+    }
+    public function testDoneList()
+    {
+        $client = static::createClient(array(), array(
+            'PHP_AUTH_USER' => 'a',
+            'PHP_AUTH_PW' => 'a'
+        ));
+        $client->request('GET', '/tasks/done');
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 

@@ -42,9 +42,7 @@ class TaskListener
     public function postRemove(LifecycleEventArgs $args)
     {
         $entity = $args->getObject();
-        if (!$entity instanceof Task) {
-            return;
-        }
+        if (!$entity instanceof Task) { return; }
         $this->cacheDriver->expire('[tasks_all][1]', 0);
     }
 }
