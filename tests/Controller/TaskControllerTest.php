@@ -16,7 +16,7 @@ class TaskControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'a',
             'PHP_AUTH_PW' => 'a'
         ));
-        $client->request('GET', '/tasks');
+        $client->request('GET', '/tasks/todo');
         $this->assertTrue($client->getResponse()->isSuccessful());
     }
 
@@ -84,7 +84,7 @@ class TaskControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'a',
             'PHP_AUTH_PW'   => 'a'
         ));
-        $crawler = $client->request('GET', '/tasks');
+        $crawler = $client->request('GET', '/tasks/todo');
         $form = $crawler->selectButton('Marquer comme faite')->last()->form();
         $client->submit($form);
         $this->assertTrue($client->getResponse()->isRedirection());
@@ -101,7 +101,7 @@ class TaskControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'a',
             'PHP_AUTH_PW'   => 'a'
         ));
-        $crawler = $client->request('GET', '/tasks');
+        $crawler = $client->request('GET', '/tasks/todo');
         $form = $crawler->selectButton('Supprimer')->last()->form();
         $client->submit($form);
         $this->assertTrue($client->getResponse()->isRedirection());
@@ -176,7 +176,7 @@ class TaskControllerTest extends WebTestCase
             'PHP_AUTH_USER' => 'b',
             'PHP_AUTH_PW'   => 'b'
         ));
-        $crawler = $client->request('GET', '/tasks');
+        $crawler = $client->request('GET', '/tasks/todo');
         $form = $crawler->selectButton('Supprimer')->last()->form();
         $client->submit($form);
         $this->assertEquals(403, $client->getResponse()->getStatusCode());

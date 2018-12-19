@@ -9,7 +9,42 @@
 namespace App\EventListener;
 
 
+use App\Entity\User;
+use Doctrine\ORM\Event\LifecycleEventArgs;
+
 class UserListener
 {
+    private $cacheDriver;
 
+    public function __construct($cacheDriver)
+    {
+        $this->cacheDriver = $cacheDriver;
+    }
+
+    public function postPersist(LifecycleEventArgs $args)
+    {
+        $entity = $args->getObject();
+        if (!$entity instanceof User) {
+            return;
+        }
+        $this->cacheDriver->expire('[users_all][1]', 0);
+    }
+
+    public function postUpdate(LifecycleEventArgs $args)
+    {
+        $entity = $args->getObject();
+        if (!$entity instanceof User) {
+            return;
+        }
+        $this->cacheDriver->expire('[users_all][1]', 0);
+    }
+
+    public function postRemove(LifecycleEventArgs $args)
+    {
+        $entity = $args->getObject();
+        if (!$entity instanceof User) {
+            return;
+        }
+        $this->cacheDriver->expire('[users_all][1]', 0);
+    }
 }

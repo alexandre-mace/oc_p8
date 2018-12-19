@@ -20,16 +20,15 @@ class UserController extends Controller
     /**
      * @Route("/users", name="user_list")
      */
-    public function listAction(UserRepository $repository)
+    public function list(UserRepository $repository)
     {
-        $response = $this->render('user/list.html.twig', ['users' => $repository->findAll()]);
-        return $response;
+        return $this->render('user/list.html.twig', ['users' => $repository->findAll()]);
     }
 
     /**
      * @Route("/users/create", name="user_create")
      */
-    public function createAction(Request $request, CreateUserHandler $handler)
+    public function create(Request $request, CreateUserHandler $handler)
     {
         $form = $this->createForm(UserType::class)->handleRequest($request);
         if ($handler->handle($form)) {
@@ -41,7 +40,7 @@ class UserController extends Controller
     /**
      * @Route("/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request, EditUserHandler $handler)
+    public function edit(User $user, Request $request, EditUserHandler $handler)
     {
         $form = $this->createForm(UserType::class, $user)->handleRequest($request);
         if ($handler->handle($form)) {

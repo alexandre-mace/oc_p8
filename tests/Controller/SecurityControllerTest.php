@@ -80,7 +80,7 @@ class SecurityControllerTest extends WebTestCase
 
     public function testOnAuthenticationSuccessWithTargetPath(){
         $client = self::createClient();
-        $client->request('GET', '/tasks');
+        $client->request('GET', '/tasks/todo');
         $this->assertTrue($client->getResponse()->isRedirection());
         $crawler = $client->followRedirect();
 
