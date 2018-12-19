@@ -53,7 +53,9 @@ class TaskController extends Controller
     {
         $form = $this->createForm(TaskType::class, $task)->handleRequest($request);
         if ($handler->handle($form)) {
-            return $this->redirect($request->request->get('referer'));
+            return $request->request->get('referer')
+                ? $this->redirect($request->request->get('referer'))
+                : $this->redirectToRoute('task_to_do_list');
         }
         return $this->render('task/edit.html.twig', [
             'form' => $form->createView(),

@@ -3,14 +3,10 @@
 namespace App\Tests\Security;
 
 use Symfony\Component\Form\Exception\LogicException;
-use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use App\Entity\Task;
 use App\Entity\User;
 use PHPUnit\Framework\TestCase;
 use App\Tests\Security\ExposedTaskVoter;
-use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
-
 
 class TaskVoterTest extends TestCase
 {

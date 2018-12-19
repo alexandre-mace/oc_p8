@@ -53,9 +53,8 @@ class UserRepository extends ServiceEntityRepository
         $query =  $this->getEntityManager()
             ->createQuery(
                 'SELECT u FROM App\Entity\User u'
-            )
-            ->useResultCache(true)
-            ->setResultCacheLifetime(3600); //3600sec = 1 hour
+            );
+            $query->useResultCache(true, 3600, 'users_all');
         return $query->getResult();
     }
 }

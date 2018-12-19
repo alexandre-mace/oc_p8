@@ -136,7 +136,7 @@ class TaskControllerTest extends WebTestCase
             );
         }
 
-        $client->request('GET', 'tasks/test-task-voter/delete');
+        $client->request('GET', 'test-task-voter/delete');
         $this->assertTrue($client->getResponse()->isRedirection());
         
         $crawler = $client->followRedirect();
