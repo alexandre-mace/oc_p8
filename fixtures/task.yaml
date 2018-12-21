@@ -1,5 +1,5 @@
 App\Entity\Task:
-    task_{1..10}:
+    task_{1..2}:
         createdAt: <dateTime('now')>
         title: <word()>
         content: <text()>

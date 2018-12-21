@@ -14,7 +14,7 @@ class TaskSubscriber implements EventSubscriber
     private $security;
     private $slugger;
 
-    public function __construct(Security $security, Slugger $slugger) 
+    public function __construct(Security $security, Slugger $slugger)
     {
         $this->security = $security;
         $this->slugger = $slugger;

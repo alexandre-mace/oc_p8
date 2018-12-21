@@ -40,9 +40,11 @@ DATABASE_URL="mysql://db_user:db_password@127.0.0.1:3306/db_name"
 
 *   Get data
 
-		$ php bin/console doctrine:fixtures:load
+		$ php bin/console hautelook:fixtures:load
 
 ## Tests
-*   run this command in console  and results will show up in console
-
-		$ ./bin/phpunit 
+* Configure the phpunit.xml.dist file
+```
+<env name="DATABASE_URL" value="mysql://db_user:db_password@127.0.0.1:3306/db_name"/>
+```
+* run in console `./bin/phpunit` and results will show up in console

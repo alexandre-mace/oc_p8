@@ -20,7 +20,6 @@ class TaskTest extends TestCase
         $this->assertEquals('test title', $task->getTitle());
         $this->assertEquals('test content', $task->getContent());
         $this->assertEquals(true, $task->getIsDone());
-        $this->assertEquals(true, $task->getIsDone());
         $this->assertEquals($datetime, $task->getCreatedAt());
         $this->assertNull($task->getId());
     }

@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\User;
 use App\Form\UserType;
+use App\Repository\UserRepository;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -12,22 +13,22 @@ use App\Handler\CreateUserHandler;
 use App\Handler\EditUserHandler;
 
 /**
- * @Security("is_granted('ROLE_ADMIN')") 
+ * @Security("is_granted('ROLE_ADMIN')")
  */
 class UserController extends Controller
 {
     /**
      * @Route("/users", name="user_list")
      */
-    public function listAction()
+    public function list(UserRepository $repository)
     {
-        return $this->render('user/list.html.twig', ['users' => $this->getDoctrine()->getRepository('App:User')->findAll()]);
+        return $this->render('user/list.html.twig', ['users' => $repository->findAll()]);
     }
 
     /**
      * @Route("/users/create", name="user_create")
      */
-    public function createAction(Request $request, CreateUserHandler $handler)
+    public function create(Request $request, CreateUserHandler $handler)
     {
         $form = $this->createForm(UserType::class)->handleRequest($request);
         if ($handler->handle($form)) {
@@ -39,7 +40,7 @@ class UserController extends Controller
     /**
      * @Route("/users/{id}/edit", name="user_edit")
      */
-    public function editAction(User $user, Request $request, EditUserHandler $handler)
+    public function edit(User $user, Request $request, EditUserHandler $handler)
     {
         $form = $this->createForm(UserType::class, $user)->handleRequest($request);
         if ($handler->handle($form)) {

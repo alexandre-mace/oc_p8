@@ -11,7 +11,6 @@ use Hautelook\AliceBundle\PhpUnit\RefreshDatabaseTrait;
 
 class SecurityControllerTest extends WebTestCase
 {
-
     public function testLogin()
     {
         $client = static::createClient(array(), array(
@@ -81,7 +80,7 @@ class SecurityControllerTest extends WebTestCase
 
     public function testOnAuthenticationSuccessWithTargetPath(){
         $client = self::createClient();
-        $client->request('GET', '/tasks');
+        $client->request('GET', '/tasks/todo');
         $this->assertTrue($client->getResponse()->isRedirection());
         $crawler = $client->followRedirect();
 
